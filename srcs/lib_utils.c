@@ -44,3 +44,30 @@ int	ft_gnl_cpy(int ret, char *buff, char **line)
 	}
 	return (0);
 }
+
+int	ft_exit_check(t_data *data, int x, int y)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	data->collectibles = 0;
+	while (i < data->nblines)
+	{
+		j = 0;
+		while (j < data->sizeline)
+		{
+			if (data->map[i][j] == 'C')
+				data->collectibles++;
+			j++;
+		}
+		i++;
+	}
+	if (x > 0 || x < data->sizeline || y > 0
+		|| y < data->nblines)
+	{
+		if (data->map[y][x] == 'E' && data->collectibles != 0)
+			return (1);
+	}
+	return (0);
+}

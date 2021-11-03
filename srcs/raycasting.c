@@ -23,7 +23,8 @@ void	ft_move_player(t_data *data)
 	new_player_dy = data->dx + data->player.walk_direction;
 	if (!ft_map_has_wall_at(data, new_player_dx, new_player_dy))
 	{
-		if (data->count2 < 1)
+		if (data->count2 < 1 && !ft_exit_check(data, new_player_dx,
+				new_player_dy))
 		{
 			data->player.x = new_player_dx * data->tile_size;
 			data->player.y = new_player_dy * data->tile_size;

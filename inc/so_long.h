@@ -96,6 +96,7 @@ typedef struct s_data
 	int			lignevide;
 	int			insidemap;
 	int			wrongcharmap;
+	int			collectibles;
 	int			nblines;
 	int			sizeline;
 	int			count;
@@ -115,6 +116,7 @@ typedef struct s_data
 
 int		ft_so_long(char *str, t_data *recup);
 int		ft_strlen(char *str);
+int		ft_exit_check(t_data *data, int x, int y);
 void	ft_error(t_data *recup, char *str);
 void	ft_parsing(char *fichier, t_data *recup);
 void	ft_initialisation(t_data *recup);
