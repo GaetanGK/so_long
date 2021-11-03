@@ -99,6 +99,7 @@ typedef struct s_data
 	int			nblines;
 	int			sizeline;
 	int			count;
+	int			count2;
 	char		depart;
 	int			indicateur3;
 	int			multijoueurs;

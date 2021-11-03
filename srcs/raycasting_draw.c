@@ -98,6 +98,8 @@ void	ft_move_count(t_data *data, int new_player_dx, int new_player_dy)
 	{
 		data->moov_count += fabs((double) data->player.walk_side)
 			+ fabs((double) data->player.walk_direction);
+		data->count2 += fabs((double) data->player.walk_side)
+			+ fabs((double) data->player.walk_direction);
 		printf("%d\n", data->moov_count);
 	}
 }

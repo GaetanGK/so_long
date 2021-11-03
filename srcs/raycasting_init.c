@@ -14,6 +14,9 @@
 
 int	ft_init(t_data *data)
 {
+	data->tile_size = 32;
+	data->window_width = data->tile_size * data->sizeline;
+	data->window_height = data->tile_size * data->nblines;
 	data->mlx_ptr = mlx_init();
 	if (!data->mlx_ptr)
 		ft_error(data, "Mlx init impossible\n");
@@ -28,6 +31,7 @@ int	ft_init(t_data *data)
 			data->window_height);
 	data->img.addr = mlx_get_data_addr(data->img.mlx_img, &data->img.bpp,
 			&data->img.line_len, &data->img.endian);
+	data->count2 = 0;
 	return (1);
 }
 

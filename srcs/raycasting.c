@@ -23,11 +23,14 @@ void	ft_move_player(t_data *data)
 	new_player_dy = data->dx + data->player.walk_direction;
 	if (!ft_map_has_wall_at(data, new_player_dx, new_player_dy))
 	{
-		data->player.x = new_player_dx * data->tile_size;
-		data->player.y = new_player_dy * data->tile_size;
-		ft_move_count(data, new_player_dx, new_player_dy);
-		data->dy = new_player_dx;
-		data->dx = new_player_dy;
+		if (data->count2 < 1)
+		{
+			data->player.x = new_player_dx * data->tile_size;
+			data->player.y = new_player_dy * data->tile_size;
+			ft_move_count(data, new_player_dx, new_player_dy);
+			data->dy = new_player_dx;
+			data->dx = new_player_dy;
+		}
 	}
 }
 
@@ -64,9 +67,6 @@ int	ft_render(t_data *data)
 int	ft_mlx(t_data *data)
 {
 	ft_verify_errors(data);
-	data->tile_size = 32;
-	data->window_width = data->tile_size * data->sizeline;
-	data->window_height = data->tile_size * data->nblines;
 	ft_init(data);
 	ft_setup(data);
 	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &ft_handle_keypress, data);
